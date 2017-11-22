@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Color Picker</title>
+    
+</head>
+<body style="background-color: rgb({{ red }}, {{ green }}, {{ blue }})">
+    
+    {% with messages = get_flashed_messages() %} 
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %} 
+    {% endwith %}
+    
+    <h1>Enter your color values below:</h1>
+    <form action='/color' method='POST'>
+        <p>Red:</p><input type='number' min=1 max=255 name='red'>
+        <p>Green:</p><input type='number' min=1 max=255 name='green'>
+        <p>Blue:</p><input type='number' min=1 max=255 name='blue'>
+        <input type='submit' value='Show my color'>
+    </form>
+</body>
+</html>
